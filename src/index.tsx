@@ -1,6 +1,9 @@
+import 'react-app-polyfill/ie9'
+import 'core-js/es6/array'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './style/index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 if (process.env.NODE_ENV === 'development') require('preact/debug')
