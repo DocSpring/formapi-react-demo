@@ -6,9 +6,8 @@
   "dependencies": {
     "@craco/craco": "^2.2.3",
     "antd": "^3.10.5",
-    "babel-plugin-import": "^1.11.0",
     "core-js": "^2.5.7",
-    "craco-antd": "^1.4.0",
+    "craco-antd": "^1.5.0",
     "craco-preact": "^1.0.0",
     "html2canvas": "^1.0.0-alpha.12",
     "pixelmatch": "^4.0.2",

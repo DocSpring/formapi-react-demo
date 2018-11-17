@@ -2601,11 +2601,12 @@ cosmiconfig@^5.0.2:
     js-yaml "^3.9.0"
     parse-json "^4.0.0"
 
-craco-antd@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/craco-antd/-/craco-antd-1.4.0.tgz#048906f45fb685357714983f567109fdc8c6e59d"
-  integrity sha512-cJCi3LK4Oksuahyy7wbbm1xJ/d4iU1JS3EVwZj1GknwDaiBc985t1a7L0vfw31wcRvN61FXqo9SIsgJsIk3xZQ==
+craco-antd@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/craco-antd/-/craco-antd-1.5.0.tgz#9ff5e717d760c8b13f81fe1f3a4f3f95855b4045"
+  integrity sha512-qJR1LemgmTye/tPeL3e3se2bM9tJzn3iaimeHR2fIerBNcz+p4aGrnO29RmQ1+23/ksd5F324zePMrH4cMMcQg==
   dependencies:
+    babel-plugin-import "^1.11.0"
     craco-less "^1.2.0"
     less-vars-to-js "^1.3.0"
 
