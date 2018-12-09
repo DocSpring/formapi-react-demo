@@ -4,10 +4,10 @@
   "private": true,
   "homepage": "https://pixelperfectgame.github.io",
   "dependencies": {
-    "@craco/craco": "^2.2.3",
+    "@craco/craco": "^3.2.0",
     "antd": "^3.10.5",
     "core-js": "^2.5.7",
-    "craco-antd": "^1.5.0",
+    "craco-antd": "^1.7.0",
     "craco-preact": "^1.0.0",
     "html2canvas": "^1.0.0-alpha.12",
     "pixelmatch": "^4.0.2",
