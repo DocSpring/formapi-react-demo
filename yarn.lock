@@ -906,24 +906,6 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@craco/craco@^2.2.3":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@craco/craco/-/craco-2.5.0.tgz#149df649d9d0fb0fcd0994fc597afd2f975b280b"
-  integrity sha512-vD/yWCoWs2u6EHLn1UD0OxAu9f4ISEls72GOWrJg2NzKJmwcRNG/AjFYJfeVHprQ6cPKYNGKltaFRPbzAydWpw==
-  dependencies:
-    cross-spawn "6.0.5"
-    lodash.mergewith "4.6.1"
-    webpack-merge "4.1.4"
-
-"@craco/craco@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@craco/craco/-/craco-3.2.0.tgz#5c9a70b9c17e9c20bdfc761314e9af858e3cbd39"
-  integrity sha512-dvBYkkNE7sm0IwQ71GROb7yZ6CjzcSP4TRPzQVv/IvWaImZwjj2jaJQhM7SqQXb6k3CJ4jDvqrioLbMI/rsXzA==
-  dependencies:
-    cross-spawn "6.0.5"
-    lodash.mergewith "4.6.1"
-    webpack-merge "4.1.4"
-
 "@craco/craco@^3.2.2":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@craco/craco/-/craco-3.2.3.tgz#28e29e4bb7b0c02512e4c68fca524adb94e54e31"
@@ -3069,12 +3051,12 @@ craco-less@^1.5.1:
     react-scripts "^2.1.1"
     webpack "4.19.1"
 
-craco-preact@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/craco-preact/-/craco-preact-1.0.0.tgz#90c668b71917aa5991c1dc65b9cfacd080d1b35b"
-  integrity sha512-bErObiPdgi6sch5GISHT6lYo8o3pzrE/IHDuexmtZuIvmjYwjWbCaoeaKmnBZAXC1FyqPVrnqVg2TeqZyCOgPA==
+craco-preact@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/craco-preact/-/craco-preact-1.1.0.tgz#1498259d74343b44706162820f1c18d4a9a81dd0"
+  integrity sha512-nhOHgC+pd+dGQP6Wrn3yg+gTt21Iy3fbMOJbFs+/do0lBNsAU4jyNbLWCpxKtjaORslmG9FzEBFweayRCRU+iA==
   dependencies:
-    "@craco/craco" "^2.2.3"
+    "@craco/craco" "^3.2.2"
     preact "^8.3.1"
     preact-compat "^3.18.4"
     react-scripts "^2.1.1"
