@@ -3049,10 +3049,10 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.0.5, cosmiconfig@^5.0.6:
     js-yaml "^3.9.0"
     parse-json "^4.0.0"
 
-craco-antd@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/craco-antd/-/craco-antd-1.9.1.tgz#69414364d74e1255e0d80081f13d66d9b82b514e"
-  integrity sha512-GYeuoEDW1AR9JmOqMcuntzBB8fmkX5GbXGW9PBLyzxOBx6VTqhUWZAVq3c9zDNk1bDtTjeuyHn05BQbLjZU1ig==
+craco-antd@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/craco-antd/-/craco-antd-1.9.2.tgz#764b54e108a4174f14f9d457c32d5a281ba0930b"
+  integrity sha512-n4U7MKhLqCg9G68VVLz/gG1PVQh5U6ikcTpV6JKp0wxYvJbuYGkfibiaAtbwjkwduZsqTwZxeNZeyhOrijyGEQ==
   dependencies:
     babel-plugin-import "^1.11.0"
     craco-less "^1.5.1"
