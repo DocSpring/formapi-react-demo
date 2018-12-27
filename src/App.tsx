@@ -58,8 +58,7 @@ class App extends Component {
               isn't solved until your CSS is 100% pixel perfect.
             </p>
             <p>
-              (Here,{' '}
-              <a href="https://stackoverflow.com/">you might need this</a>.)
+              (<a href="https://stackoverflow.com/">You might need this</a>.)
             </p>
           </Content>
 
