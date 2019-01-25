@@ -1,137 +1,59 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-
-import { Layout, Menu, Breadcrumb, Icon, Card } from 'antd';
-import { Row, Col } from 'antd';
-import { List } from 'antd';
-import { ReactComponent as TargetIcon } from './icons/target.svg';
-import { ReactComponent as ResultIcon } from './icons/magnifying-glass.svg';
-import { ReactComponent as DiffIcon } from './icons/diff.svg';
-
-const data: string[] = Array<string>(10)
-  .fill('')
-  .map((_, i) => `Puzzle ${i + 1}`);
-
-const { Header, Content, Footer, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
+import { Button } from 'antd';
+import FormAPI from 'formapi';
 
 import './style/AntDesign/index.less';
 
+const config = new FormAPI.Configuration();
+config.apiTokenId = 'api_test_kaGPkrf7tqy3xgF6gs';
+config.apiTokenSecret = 'T0cueAKgZNGR6F_1_OI4inWm4XHStfaoxrCLIHmLYzc';
+config.basePath = 'http://api.formapi.local:3000/api/v1';
+const client = new FormAPI.Client(config);
+
 class App extends Component {
-  state = {
-    collapsed: false,
-  };
+  state: { pdfURL: string | null };
 
-  onCollapse = (collapsed: Boolean) => {
-    const b = <div />;
-    console.log(collapsed);
-    this.setState({ collapsed });
-  };
-
-  cardTitle(label: string, icon?: JSX.Element, rightIconType?: string) {
-    return (
-      <div style={{ color: '#aaa', display: 'flex', alignItems: 'center' }}>
-        {icon}
-        <span style={{ marginLeft: '10px', textTransform: 'uppercase' }}>
-          {label}
-        </span>
-        {rightIconType ? <Icon type={rightIconType} /> : null}
-        <div />
-      </div>
-    );
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      pdfURL: null,
+    };
   }
 
-  testFunction() {
-    return <div />;
+  generatePDF() {
+    console.log('Generating PDF');
+
+    const template_id = 'tpl_CP6CkXPSNsxHqh6cbp';
+    const options = {
+      data: {
+        name: 'John Smith',
+      },
+    };
+
+    client.generatePDF(template_id, options, function(
+      error: any,
+      response: any
+    ) {
+      if (error) throw error;
+      console.log(response);
+      console.log(response.status);
+      console.log(response.submission);
+    });
   }
 
   render() {
-    const cardStyle = { flex: 1, margin: '5px' };
-
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider width={240} style={{ background: '#fff' }}>
-          <Content style={{ padding: '21px' }}>
-            <h2>PixelPerfect</h2>
-            <p>
-              Write some HTML and CSS that matches the target image. The puzzle
-              isn't solved until your CSS is 100% pixel perfect.
-            </p>
-            <p>
-              (<a href="https://stackoverflow.com/">You might need this</a>.)
-            </p>
-          </Content>
-
-          <List
-            size="small"
-            bordered
-            dataSource={data}
-            renderItem={(item: String) => <List.Item>{item}</List.Item>}
-          />
-        </Sider>
-        <Layout style={{ height: '100vh' }}>
-          <Content
-            style={{
-              margin: cardStyle.margin,
-              height: '100vh',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'row', flex: 1 }}>
-              <div
-                style={{ display: 'flex', flexDirection: 'column', flex: 1 }}
-              >
-                <Card
-                  className="ant-card-small"
-                  title={this.cardTitle('HTML', <Icon type="html5" />)}
-                  bordered={true}
-                  style={{ flex: 1, margin: '5px' }}
-                >
-                  <p>HTML Code</p>
-                </Card>
-
-                <Card
-                  className="ant-card-small"
-                  title={this.cardTitle('CSS', <Icon type="code" />)}
-                  bordered={true}
-                  style={cardStyle}
-                >
-                  <p>Card editor</p>
-                </Card>
-              </div>
-              <div
-                style={{ display: 'flex', flexDirection: 'column', flex: 1 }}
-              >
-                <Card
-                  className="ant-card-small"
-                  title={this.cardTitle('Target', <TargetIcon />)}
-                  bordered={true}
-                  style={cardStyle}
-                >
-                  <p>Card editor</p>
-                </Card>
-                <Card
-                  className="ant-card-small"
-                  title={this.cardTitle('Result', <ResultIcon />)}
-                  bordered={true}
-                  style={cardStyle}
-                >
-                  <p>Card editor</p>
-                </Card>
-                <Card
-                  className="ant-card-small"
-                  title={this.cardTitle('Difference', <DiffIcon />)}
-                  bordered={true}
-                  style={cardStyle}
-                >
-                  <p>Card editor</p>
-                </Card>
-              </div>
-            </div>
-          </Content>
-        </Layout>
-      </Layout>
+      <div style={{ margin: '60px' }}>
+        <h2>FormAPI Demo</h2>
+        <Button onClick={this.generatePDF}>Generate PDF</Button>
+        {this.state.pdfURL && (
+          <p>
+            <a href={this.state.pdfURL} target="_blank">
+              Download PDF
+            </a>
+          </p>
+        )}
+      </div>
     );
   }
 }
