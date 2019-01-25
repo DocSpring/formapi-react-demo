@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Button, Spin, Icon } from 'antd';
+
+const loadingIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+
 import FormAPI from 'formapi';
 
 import './style/AntDesign/index.less';
@@ -11,17 +14,21 @@ config.basePath = 'http://api.formapi.local:3000/api/v1';
 const client = new FormAPI.Client(config);
 
 class App extends Component {
-  state: { pdfURL: string | null };
+  state: { generating: boolean; pdfURL: string | null };
 
   constructor(props: any) {
     super(props);
     this.state = {
+      generating: false,
       pdfURL: null,
     };
+
+    this.generatePDF = this.generatePDF.bind(this);
   }
 
   generatePDF() {
     console.log('Generating PDF');
+    this.setState({ generating: true });
 
     const template_id = 'tpl_CP6CkXPSNsxHqh6cbp';
     const options = {
@@ -30,14 +37,14 @@ class App extends Component {
       },
     };
 
-    client.generatePDF(template_id, options, function(
-      error: any,
-      response: any
-    ) {
+    client.generatePDF(template_id, options, (error: any, response: any) => {
       if (error) throw error;
-      console.log(response);
       console.log(response.status);
       console.log(response.submission);
+      this.setState({
+        generating: false,
+        pdfURL: response.submission.download_url,
+      });
     });
   }
 
@@ -45,9 +52,13 @@ class App extends Component {
     return (
       <div style={{ margin: '60px' }}>
         <h2>FormAPI Demo</h2>
-        <Button onClick={this.generatePDF}>Generate PDF</Button>
+        {this.state.generating ? (
+          <Spin indicator={loadingIcon} />
+        ) : (
+          <Button onClick={this.generatePDF}>Generate PDF</Button>
+        )}
         {this.state.pdfURL && (
-          <p>
+          <p style={{ marginTop: '10px' }}>
             <a href={this.state.pdfURL} target="_blank">
               Download PDF
             </a>
